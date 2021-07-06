@@ -1,0 +1,28 @@
+# this is an auto generated file. This will be overwritten
+query GetCurrentWeather($id: ID!) {
+  getCurrentWeather(id: $id) {
+    id
+    city
+    description
+    temperature
+    createdAt
+    updatedAt
+  }
+}
+query ListCurrentWeathers(
+  $filter: ModelCurrentWeatherFilterInput
+  $limit: Int
+  $nextToken: String
+) {
+  listCurrentWeathers(filter: $filter, limit: $limit, nextToken: $nextToken) {
+    items {
+      id
+      city
+      description
+      temperature
+      createdAt
+      updatedAt
+    }
+    nextToken
+  }
+}

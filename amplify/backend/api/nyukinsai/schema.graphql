@@ -1,0 +1,6 @@
+type CurrentWeather @model {
+  id: ID!
+  city: String!
+  description: String
+  temperature:String
+}
