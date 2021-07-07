@@ -11,5 +11,31 @@
       "StackId": "arn:aws:cloudformation:ap-northeast-1:738786103577:stack/amplify-nyukinsai-prod-20021/180a2bb0-dec7-11eb-a4cd-0a08aa900d9b",
       "AmplifyAppId": "duwkjvye69s2h"
     }
+  },
+  "testtest": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nyukinsai-testtest-42629-authRole",
+      "UnauthRoleArn": "arn:aws:iam::738786103577:role/amplify-nyukinsai-testtest-42629-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::738786103577:role/amplify-nyukinsai-testtest-42629-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-nyukinsai-testtest-42629-deployment",
+      "UnauthRoleName": "amplify-nyukinsai-testtest-42629-unauthRole",
+      "StackName": "amplify-nyukinsai-testtest-42629",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:738786103577:stack/amplify-nyukinsai-testtest-42629/8057bd90-dedb-11eb-9ac8-06aabd025379",
+      "AmplifyAppId": "duwkjvye69s2h"
+    }
+  },
+  "test": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-nyukinsai-test-43008-authRole",
+      "UnauthRoleArn": "arn:aws:iam::738786103577:role/amplify-nyukinsai-test-43008-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::738786103577:role/amplify-nyukinsai-test-43008-authRole",
+      "Region": "ap-northeast-1",
+      "DeploymentBucketName": "amplify-nyukinsai-test-43008-deployment",
+      "UnauthRoleName": "amplify-nyukinsai-test-43008-unauthRole",
+      "StackName": "amplify-nyukinsai-test-43008",
+      "StackId": "arn:aws:cloudformation:ap-northeast-1:738786103577:stack/amplify-nyukinsai-test-43008/0322b630-dedc-11eb-9aad-0a197b714f8d",
+      "AmplifyAppId": "duwkjvye69s2h"
+    }
   }
 }
