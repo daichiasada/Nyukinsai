@@ -1,9 +1,9 @@
 # this is an auto generated file. This will be overwritten
-mutation CreateCurrentWeather(
-  $input: CreateCurrentWeatherInput!
-  $condition: ModelCurrentWeatherConditionInput
+mutation CreateCurrentWeatherInfo(
+  $input: CreateCurrentWeatherInfoInput!
+  $condition: ModelCurrentWeatherInfoConditionInput
 ) {
-  createCurrentWeather(input: $input, condition: $condition) {
+  createCurrentWeatherInfo(input: $input, condition: $condition) {
     id
     city
     description
@@ -12,11 +12,11 @@ mutation CreateCurrentWeather(
     updatedAt
   }
 }
-mutation UpdateCurrentWeather(
-  $input: UpdateCurrentWeatherInput!
-  $condition: ModelCurrentWeatherConditionInput
+mutation UpdateCurrentWeatherInfo(
+  $input: UpdateCurrentWeatherInfoInput!
+  $condition: ModelCurrentWeatherInfoConditionInput
 ) {
-  updateCurrentWeather(input: $input, condition: $condition) {
+  updateCurrentWeatherInfo(input: $input, condition: $condition) {
     id
     city
     description
@@ -25,11 +25,11 @@ mutation UpdateCurrentWeather(
     updatedAt
   }
 }
-mutation DeleteCurrentWeather(
-  $input: DeleteCurrentWeatherInput!
-  $condition: ModelCurrentWeatherConditionInput
+mutation DeleteCurrentWeatherInfo(
+  $input: DeleteCurrentWeatherInfoInput!
+  $condition: ModelCurrentWeatherInfoConditionInput
 ) {
-  deleteCurrentWeather(input: $input, condition: $condition) {
+  deleteCurrentWeatherInfo(input: $input, condition: $condition) {
     id
     city
     description

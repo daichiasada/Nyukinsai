@@ -1,4 +1,4 @@
-type CurrentWeather @model {
+type CurrentWeatherInfo @model {
   id: ID!
   city: String!
   description: String
