@@ -9,20 +9,20 @@ export interface SubscriptionResponse<T> {
   value: GraphQLResult<T>;
 }
 
-export type CreateCurrentWeatherInfoInput = {
+export type CreateCurrentWeatherInput = {
   id?: string | null;
   city: string;
   description?: string | null;
   temperature?: string | null;
 };
 
-export type ModelCurrentWeatherInfoConditionInput = {
+export type ModelCurrentWeatherConditionInput = {
   city?: ModelStringInput | null;
   description?: ModelStringInput | null;
   temperature?: ModelStringInput | null;
-  and?: Array<ModelCurrentWeatherInfoConditionInput | null> | null;
-  or?: Array<ModelCurrentWeatherInfoConditionInput | null> | null;
-  not?: ModelCurrentWeatherInfoConditionInput | null;
+  and?: Array<ModelCurrentWeatherConditionInput | null> | null;
+  or?: Array<ModelCurrentWeatherConditionInput | null> | null;
+  not?: ModelCurrentWeatherConditionInput | null;
 };
 
 export type ModelStringInput = {
@@ -64,8 +64,8 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
-export type CurrentWeatherInfo = {
-  __typename: "CurrentWeatherInfo";
+export type CurrentWeather = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -74,25 +74,25 @@ export type CurrentWeatherInfo = {
   updatedAt: string;
 };
 
-export type UpdateCurrentWeatherInfoInput = {
+export type UpdateCurrentWeatherInput = {
   id: string;
   city?: string | null;
   description?: string | null;
   temperature?: string | null;
 };
 
-export type DeleteCurrentWeatherInfoInput = {
+export type DeleteCurrentWeatherInput = {
   id: string;
 };
 
-export type ModelCurrentWeatherInfoFilterInput = {
+export type ModelCurrentWeatherFilterInput = {
   id?: ModelIDInput | null;
   city?: ModelStringInput | null;
   description?: ModelStringInput | null;
   temperature?: ModelStringInput | null;
-  and?: Array<ModelCurrentWeatherInfoFilterInput | null> | null;
-  or?: Array<ModelCurrentWeatherInfoFilterInput | null> | null;
-  not?: ModelCurrentWeatherInfoFilterInput | null;
+  and?: Array<ModelCurrentWeatherFilterInput | null> | null;
+  or?: Array<ModelCurrentWeatherFilterInput | null> | null;
+  not?: ModelCurrentWeatherFilterInput | null;
 };
 
 export type ModelIDInput = {
@@ -111,14 +111,14 @@ export type ModelIDInput = {
   size?: ModelSizeInput | null;
 };
 
-export type ModelCurrentWeatherInfoConnection = {
-  __typename: "ModelCurrentWeatherInfoConnection";
-  items?: Array<CurrentWeatherInfo | null> | null;
+export type ModelCurrentWeatherConnection = {
+  __typename: "ModelCurrentWeatherConnection";
+  items?: Array<CurrentWeather | null> | null;
   nextToken?: string | null;
 };
 
-export type CreateCurrentWeatherInfoMutation = {
-  __typename: "CurrentWeatherInfo";
+export type CreateCurrentWeatherMutation = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -127,8 +127,8 @@ export type CreateCurrentWeatherInfoMutation = {
   updatedAt: string;
 };
 
-export type UpdateCurrentWeatherInfoMutation = {
-  __typename: "CurrentWeatherInfo";
+export type UpdateCurrentWeatherMutation = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -137,8 +137,8 @@ export type UpdateCurrentWeatherInfoMutation = {
   updatedAt: string;
 };
 
-export type DeleteCurrentWeatherInfoMutation = {
-  __typename: "CurrentWeatherInfo";
+export type DeleteCurrentWeatherMutation = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -147,8 +147,8 @@ export type DeleteCurrentWeatherInfoMutation = {
   updatedAt: string;
 };
 
-export type GetCurrentWeatherInfoQuery = {
-  __typename: "CurrentWeatherInfo";
+export type GetCurrentWeatherQuery = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -157,10 +157,10 @@ export type GetCurrentWeatherInfoQuery = {
   updatedAt: string;
 };
 
-export type ListCurrentWeatherInfosQuery = {
-  __typename: "ModelCurrentWeatherInfoConnection";
+export type ListCurrentWeathersQuery = {
+  __typename: "ModelCurrentWeatherConnection";
   items?: Array<{
-    __typename: "CurrentWeatherInfo";
+    __typename: "CurrentWeather";
     id: string;
     city: string;
     description?: string | null;
@@ -171,8 +171,8 @@ export type ListCurrentWeatherInfosQuery = {
   nextToken?: string | null;
 };
 
-export type OnCreateCurrentWeatherInfoSubscription = {
-  __typename: "CurrentWeatherInfo";
+export type OnCreateCurrentWeatherSubscription = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -181,8 +181,8 @@ export type OnCreateCurrentWeatherInfoSubscription = {
   updatedAt: string;
 };
 
-export type OnUpdateCurrentWeatherInfoSubscription = {
-  __typename: "CurrentWeatherInfo";
+export type OnUpdateCurrentWeatherSubscription = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -191,8 +191,8 @@ export type OnUpdateCurrentWeatherInfoSubscription = {
   updatedAt: string;
 };
 
-export type OnDeleteCurrentWeatherInfoSubscription = {
-  __typename: "CurrentWeatherInfo";
+export type OnDeleteCurrentWeatherSubscription = {
+  __typename: "CurrentWeather";
   id: string;
   city: string;
   description?: string | null;
@@ -205,12 +205,12 @@ export type OnDeleteCurrentWeatherInfoSubscription = {
   providedIn: "root"
 })
 export class APIService {
-  async CreateCurrentWeatherInfo(
-    input: CreateCurrentWeatherInfoInput,
-    condition?: ModelCurrentWeatherInfoConditionInput
-  ): Promise<CreateCurrentWeatherInfoMutation> {
-    const statement = `mutation CreateCurrentWeatherInfo($input: CreateCurrentWeatherInfoInput!, $condition: ModelCurrentWeatherInfoConditionInput) {
-        createCurrentWeatherInfo(input: $input, condition: $condition) {
+  async CreateCurrentWeather(
+    input: CreateCurrentWeatherInput,
+    condition?: ModelCurrentWeatherConditionInput
+  ): Promise<CreateCurrentWeatherMutation> {
+    const statement = `mutation CreateCurrentWeather($input: CreateCurrentWeatherInput!, $condition: ModelCurrentWeatherConditionInput) {
+        createCurrentWeather(input: $input, condition: $condition) {
           __typename
           id
           city
@@ -229,16 +229,14 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <CreateCurrentWeatherInfoMutation>(
-      response.data.createCurrentWeatherInfo
-    );
+    return <CreateCurrentWeatherMutation>response.data.createCurrentWeather;
   }
-  async UpdateCurrentWeatherInfo(
-    input: UpdateCurrentWeatherInfoInput,
-    condition?: ModelCurrentWeatherInfoConditionInput
-  ): Promise<UpdateCurrentWeatherInfoMutation> {
-    const statement = `mutation UpdateCurrentWeatherInfo($input: UpdateCurrentWeatherInfoInput!, $condition: ModelCurrentWeatherInfoConditionInput) {
-        updateCurrentWeatherInfo(input: $input, condition: $condition) {
+  async UpdateCurrentWeather(
+    input: UpdateCurrentWeatherInput,
+    condition?: ModelCurrentWeatherConditionInput
+  ): Promise<UpdateCurrentWeatherMutation> {
+    const statement = `mutation UpdateCurrentWeather($input: UpdateCurrentWeatherInput!, $condition: ModelCurrentWeatherConditionInput) {
+        updateCurrentWeather(input: $input, condition: $condition) {
           __typename
           id
           city
@@ -257,16 +255,14 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <UpdateCurrentWeatherInfoMutation>(
-      response.data.updateCurrentWeatherInfo
-    );
+    return <UpdateCurrentWeatherMutation>response.data.updateCurrentWeather;
   }
-  async DeleteCurrentWeatherInfo(
-    input: DeleteCurrentWeatherInfoInput,
-    condition?: ModelCurrentWeatherInfoConditionInput
-  ): Promise<DeleteCurrentWeatherInfoMutation> {
-    const statement = `mutation DeleteCurrentWeatherInfo($input: DeleteCurrentWeatherInfoInput!, $condition: ModelCurrentWeatherInfoConditionInput) {
-        deleteCurrentWeatherInfo(input: $input, condition: $condition) {
+  async DeleteCurrentWeather(
+    input: DeleteCurrentWeatherInput,
+    condition?: ModelCurrentWeatherConditionInput
+  ): Promise<DeleteCurrentWeatherMutation> {
+    const statement = `mutation DeleteCurrentWeather($input: DeleteCurrentWeatherInput!, $condition: ModelCurrentWeatherConditionInput) {
+        deleteCurrentWeather(input: $input, condition: $condition) {
           __typename
           id
           city
@@ -285,13 +281,11 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <DeleteCurrentWeatherInfoMutation>(
-      response.data.deleteCurrentWeatherInfo
-    );
+    return <DeleteCurrentWeatherMutation>response.data.deleteCurrentWeather;
   }
-  async GetCurrentWeatherInfo(id: string): Promise<GetCurrentWeatherInfoQuery> {
-    const statement = `query GetCurrentWeatherInfo($id: ID!) {
-        getCurrentWeatherInfo(id: $id) {
+  async GetCurrentWeather(id: string): Promise<GetCurrentWeatherQuery> {
+    const statement = `query GetCurrentWeather($id: ID!) {
+        getCurrentWeather(id: $id) {
           __typename
           id
           city
@@ -307,15 +301,15 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <GetCurrentWeatherInfoQuery>response.data.getCurrentWeatherInfo;
+    return <GetCurrentWeatherQuery>response.data.getCurrentWeather;
   }
-  async ListCurrentWeatherInfos(
-    filter?: ModelCurrentWeatherInfoFilterInput,
+  async ListCurrentWeathers(
+    filter?: ModelCurrentWeatherFilterInput,
     limit?: number,
     nextToken?: string
-  ): Promise<ListCurrentWeatherInfosQuery> {
-    const statement = `query ListCurrentWeatherInfos($filter: ModelCurrentWeatherInfoFilterInput, $limit: Int, $nextToken: String) {
-        listCurrentWeatherInfos(filter: $filter, limit: $limit, nextToken: $nextToken) {
+  ): Promise<ListCurrentWeathersQuery> {
+    const statement = `query ListCurrentWeathers($filter: ModelCurrentWeatherFilterInput, $limit: Int, $nextToken: String) {
+        listCurrentWeathers(filter: $filter, limit: $limit, nextToken: $nextToken) {
           __typename
           items {
             __typename
@@ -342,14 +336,14 @@ export class APIService {
     const response = (await API.graphql(
       graphqlOperation(statement, gqlAPIServiceArguments)
     )) as any;
-    return <ListCurrentWeatherInfosQuery>response.data.listCurrentWeatherInfos;
+    return <ListCurrentWeathersQuery>response.data.listCurrentWeathers;
   }
-  OnCreateCurrentWeatherInfoListener: Observable<
-    SubscriptionResponse<OnCreateCurrentWeatherInfoSubscription>
+  OnCreateCurrentWeatherListener: Observable<
+    SubscriptionResponse<OnCreateCurrentWeatherSubscription>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnCreateCurrentWeatherInfo {
-        onCreateCurrentWeatherInfo {
+      `subscription OnCreateCurrentWeather {
+        onCreateCurrentWeather {
           __typename
           id
           city
@@ -360,14 +354,14 @@ export class APIService {
         }
       }`
     )
-  ) as Observable<SubscriptionResponse<OnCreateCurrentWeatherInfoSubscription>>;
+  ) as Observable<SubscriptionResponse<OnCreateCurrentWeatherSubscription>>;
 
-  OnUpdateCurrentWeatherInfoListener: Observable<
-    SubscriptionResponse<OnUpdateCurrentWeatherInfoSubscription>
+  OnUpdateCurrentWeatherListener: Observable<
+    SubscriptionResponse<OnUpdateCurrentWeatherSubscription>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnUpdateCurrentWeatherInfo {
-        onUpdateCurrentWeatherInfo {
+      `subscription OnUpdateCurrentWeather {
+        onUpdateCurrentWeather {
           __typename
           id
           city
@@ -378,14 +372,14 @@ export class APIService {
         }
       }`
     )
-  ) as Observable<SubscriptionResponse<OnUpdateCurrentWeatherInfoSubscription>>;
+  ) as Observable<SubscriptionResponse<OnUpdateCurrentWeatherSubscription>>;
 
-  OnDeleteCurrentWeatherInfoListener: Observable<
-    SubscriptionResponse<OnDeleteCurrentWeatherInfoSubscription>
+  OnDeleteCurrentWeatherListener: Observable<
+    SubscriptionResponse<OnDeleteCurrentWeatherSubscription>
   > = API.graphql(
     graphqlOperation(
-      `subscription OnDeleteCurrentWeatherInfo {
-        onDeleteCurrentWeatherInfo {
+      `subscription OnDeleteCurrentWeather {
+        onDeleteCurrentWeather {
           __typename
           id
           city
@@ -396,5 +390,5 @@ export class APIService {
         }
       }`
     )
-  ) as Observable<SubscriptionResponse<OnDeleteCurrentWeatherInfoSubscription>>;
+  ) as Observable<SubscriptionResponse<OnDeleteCurrentWeatherSubscription>>;
 }

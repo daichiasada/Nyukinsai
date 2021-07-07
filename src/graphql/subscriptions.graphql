@@ -1,6 +1,6 @@
 # this is an auto generated file. This will be overwritten
-subscription OnCreateCurrentWeatherInfo {
-  onCreateCurrentWeatherInfo {
+subscription OnCreateCurrentWeather {
+  onCreateCurrentWeather {
     id
     city
     description
@@ -9,8 +9,8 @@ subscription OnCreateCurrentWeatherInfo {
     updatedAt
   }
 }
-subscription OnUpdateCurrentWeatherInfo {
-  onUpdateCurrentWeatherInfo {
+subscription OnUpdateCurrentWeather {
+  onUpdateCurrentWeather {
     id
     city
     description
@@ -19,8 +19,8 @@ subscription OnUpdateCurrentWeatherInfo {
     updatedAt
   }
 }
-subscription OnDeleteCurrentWeatherInfo {
-  onDeleteCurrentWeatherInfo {
+subscription OnDeleteCurrentWeather {
+  onDeleteCurrentWeather {
     id
     city
     description
